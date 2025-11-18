@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Resume Page</title>
+
+<!-- html2pdf.js CDN -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"></script>
+
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: "Poppins", sans-serif;
+        background: linear-gradient(135deg, #dfe9f3, #ffffff);
+    }
+
+    .container {
+        width: 90%;
+        max-width: 850px;
+        margin: 40px auto;
+        background: #ffffff;
+        padding: 40px;
+        border-radius: 16px;
+        box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+        border-left: 8px solid #4a90e2;
+    }
+
+    h2 {
+        text-align: center;
+        color: #333;
+        margin-bottom: 30px;
+        font-size: 30px;
+        letter-spacing: 1px;
+    }
+
+    h3 {
+        margin-top: 30px;
+        color: #4a90e2;
+        font-size: 22px;
+        border-bottom: 2px solid #4a90e2;
+        width: max-content;
+        padding-bottom: 4px;
+    }
+
+    p, li {
+        color: #555;
+        line-height: 1.7;
+        font-size: 16px;
+    }
+
+    ul {
+        padding-left: 22px;
+    }
+
+    .download-btn {
+        display: block;
+        padding: 14px 30px;
+        background: #4caf50;
+        color: white;
+        text-decoration: none;
+        border-radius: 10px;
+        margin: 30px auto 0;
+        font-size: 17px;
+        text-align: center;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    .download-btn:hover {
+        background: #3b873d;
+        transform: scale(1.05);
+    }
+
+    .back-btn {
+        display: block;
+        width: fit-content;
+        padding: 10px 25px;
+        background: #333;
+        color: white;
+        text-decoration: none;
+        border-radius: 10px;
+        margin: 20px auto 0;
+        transition: 0.3s;
+    }
+
+    .back-btn:hover {
+        background: #000;
+        transform: scale(1.05);
+    }
+</style>
+
+</head>
+<body>
+
+<div class="container" id="resumeContent">
+    <h2>Resume</h2>
+
+    <h3>Personal Details</h3>
+    <ul>
+        <li><strong>Name:</strong> Rammya Anil Maryapgol</li>
+        <li><strong>Email:</strong> rammyamaryapgol@gmail.com</li>
+        <li><strong>Contact:</strong> 9307145252</li>
+        <li><strong>Address:</strong> Halkarni, Tal-Gadhinglaj, Dist-Kolhapur</li>
+    </ul>
+
+    <h3>Profile Summary</h3>
+    <p>Basic knowledge of Web Programming, Python, DBMS, HTML, CSS, JavaScript.</p>
+	
+	<h3>Career Objective</h3>
+    <p>A highly motivated and results-driven computer engineer with a strong foundation in programming skills, problem-solving abilities, 
+       and passion for innovation in a dynamic tech role, contributing to cutting-edge projects and growth in a collaborative environment.</p>
+
+
+    <h3>Education</h3>
+    <ul>
+        <li>Diploma in Computer Science & Engineering – 2021-2024 (DTE)</li>
+        <li>Bachelor of Technology in Computer Science – VTU University</li>
+    </ul>
+
+    <h3>Skills</h3>
+    <ul>
+        <li>HTML, CSS, JavaScript</li>
+        <li>Python, DSA</li>
+        <li>MySQL, MongoDB</li>
+        <li>Java, GitHub</li>
+    </ul>
+
+    <h3>Certificates</h3>
+    <ul>
+        <li>IBM Skills</li>
+        <li>Infosys</li>
+    </ul>
+
+    <h3>Courses / Internships</h3>
+    <ul>
+        <li>Full Stack Development – Softmusk Info Pvt. Ltd, Belagavi</li>
+        <li>Cyber Security Internship – Eyesec Cyber Security Solutions Pvt. Ltd, Belagavi</li>
+    </ul>
+	<h3>Declaration</h3>
+    <p>I hereby declare that the information provided above is true and accurate to the best of my knowledge. 
+       I understand that any false information may lead to disqualification or termination.</p>
+</div>
+
+<!-- Working Download Button -->
+<a class="download-btn" onclick="generatePDF()">Download Resume PDF</a>
+
+<!-- Back to Profile -->
+<a class="back-btn" href="index.html">Back to Profile</a>
+
+<!-- JavaScript: Convert HTML to PDF -->
+<script>
+function generatePDF() {
+    const resume = document.getElementById("resumeContent");
+
+    const options = {
+        margin: 0.5,
+        filename: 'resume.pdf',
+        image: { type: 'jpeg', quality: 1 },
+        html2canvas: { scale: 2 },
+        jsPDF: { unit: 'in', format: 'a4', orientation: 'portrait' }
+    };
+
+    html2pdf().from(resume).set(options).save();
+}
+</script>
+
+</body>
+</html>
